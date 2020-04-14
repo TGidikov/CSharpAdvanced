@@ -1,0 +1,60 @@
+Spaceship Crafting
+ 
+Stephen wants to build a spaceship and start travelling through the galaxy. He has some materials, which upon mixing can give him the more advanced materials he needs to build the spaceship. You have to help him get the job done.
+First, you will be given a sequence of integers, representing chemical liquids. Afterwards, you will be given another sequence of integers representing physical items. 
+You need to start from the first liquid and try to mix it with the last physical item. If the sum of their values is equal to any of the items in the table below – create the item corresponding to the value and remove both the liquid and the physical item. Otherwise, remove only the liquid and increase the value of the item by 3. You need to stop combining when you have no more liquids or physical items.
+Advanced Material	Value needed
+Glass	25
+Aluminium	50
+Lithium	75
+Carbon fiber	100
+
+In order to build a spaceship, Stephen needs one of each of the Advanced materials. 
+Input
+•	On the first line, you will receive the integers representing the chemical liquids, separated by a single space. 
+•	On the second line, you will receive the integers representing the physical items, separated by a single space.
+Output
+•	On the first line of output – print if Stephen succeeded in building the spaceship:
+o	"Wohoo! You succeeded in building the spaceship!"
+o	"Ugh, what a pity! You didn't have enough materials to build the spaceship."
+•	On the second line - print all liquids you have left:
+o	If there are no liquids: "Liquids left: none"
+o	If there are liquids: "Liquids left: {liquid1}, {liquid2}, {liquid3}, (…)"
+•	On the third line - print all physical materials you have left:
+o	If there are no items: "Physical items left: none"
+o	If there are items: "Physical items left: {item1}, {item2}, {item3}, (…)"
+•	Then, you need to print all Advanced Materials and the amount you have of them, ordered alphabetically:
+o	"Aluminium: {amount}"
+o	"Carbon fiber: {amount}"
+o	"Glass: {amount}"
+o	"Lithium: {amount}"
+Constraints
+•	All of the given numbers will be valid integers in the range [0, 100].
+•	Advanced materials can be crafted more than once.
+Examples
+Input	Output	Comment
+1 25 50 50
+50 25 25 24	Wohoo! You succeeded in building the spaceship!
+Liquids left: none
+Physical items left: none
+Aluminium: 1
+Carbon fiber: 1
+Glass: 1
+Lithium: 1	The first pair is the first liquid with value of 1 and the last physical item of value 24, their sum is 25, so we craft Glass. Then we have sum of 50, we craft Aluminium. After that we have sum of 75, we craft Lithium. Next we have sum of 100, so we craft Carbon fiber. We have no left liquids and/or physical items, so we stop trying to craft Advanced Materials, but we have enough of them to build the spaceship.
+10 20 30 40 50
+50 40 30 30 15	Ugh, what a pity! You didn't have enough materials to build the spaceship.
+Liquids left: none
+Physical items left: 39, 40, 50
+Aluminium: 1
+Carbon fiber: 0
+Glass: 1
+Lithium: 0	First, we take the first given liquid and the last physical item, their sum is 25 and we craft Glass, removing both of them from the collections.
+Then, we take the next pair and their sum is 50, crafting Aluminium and again – removing both the liquid and the item.
+Next, we take the next pair and their sum is 60, so we remove the liquid and increase the item’s value by 3.
+The next 2 pairs follow the same scenario, so we end up with not enough materials for building a spaceship, no liquids left and some physical items, one of which is 39 (originally 30, increased its value three times).
+
+
+
+
+
+
